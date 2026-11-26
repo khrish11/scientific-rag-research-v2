@@ -15,18 +15,23 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
+import tiktoken
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, brier_score_loss, roc_auc_score
 
 from scientific_rag.data.dataset import load_dataset
 from scientific_rag.experiments.phase3_adaptive import (
-    gold_sets_for, simulate,
+    gold_sets_for,
+    simulate,
 )
 from scientific_rag.retrieval.baselines import (
-    BM25Retriever, DenseRetriever, build_passages, hybrid_search, rrf_search,
+    BM25Retriever,
+    DenseRetriever,
+    build_passages,
+    hybrid_search,
+    rrf_search,
 )
-from scientific_rag.retrieval.evidence import is_non_textual_evidence, normalize_text
-import tiktoken
+from scientific_rag.retrieval.evidence import is_non_textual_evidence
 
 logging.basicConfig(level=logging.WARNING)
 ENC = tiktoken.get_encoding("cl100k_base")

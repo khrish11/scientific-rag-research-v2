@@ -146,3 +146,34 @@ MIT License
 ## Acknowledgments
 
 This research uses the QASPER dataset from the Allen Institute for AI (AI2).
+
+## Research Status (Phase 5.1 consolidation)
+
+**Objective:** Exploratory study of evidence completeness and retrieval
+stopping in single-paper scientific QA (QASPER). NOT peer-reviewed.
+
+**Principal findings (exploratory validation only):**
+- Complete annotated-evidence recovery @1024 tokens: BM25 .578, dense .644,
+  hybrid .663, RRF .661 (812 eligible questions, question-micro).
+- Recovery collapses for multi-paragraph evidence (dense: 1 para .68,
+  >=5 paras .08).
+- Learned sufficiency prediction NOT supported: retrieval features
+  AUROC ~0.5-0.58 vs context-size-only 0.755; learned stopping fails the
+  token-reduction non-inferiority target. Model C untested.
+- GPU (RTX 4060) gives ~14x embedding throughput, identical rankings.
+
+**Install:** `python -m venv .venv && .venv\Scripts\pip install -e ".[dev]"`
+(sentence-transformers, torch cu126 for GPU)
+
+**Reproduce:** see `docs/reproducibility.md`.
+`.venv\Scripts\python -m scientific_rag.experiments.phase5_canonical`
+
+**Structure:** `src/scientific_rag/{data,retrieval,experiments,integrity}`,
+`tests/`, `docs/`, `results/` (aggregates; regenerable, gitignored),
+`scripts/`.
+
+**Limitations:** validation-informed preprocessing; test split sealed;
+no Model C; no faithful Adaptive-k; eligibility exclusions not fully
+characterized; single dataset/single-paper setting.
+
+**Disclosure:** AI-assisted software development (Devin, Cognition).

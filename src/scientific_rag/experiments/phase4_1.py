@@ -22,7 +22,6 @@ def main():
     t0 = time.time()
     val = json.loads((RESULTS / "phase3_trajectories.json").read_text())
     # rebuild train trajectories quickly via phase4 builder
-    import tiktoken
     from scientific_rag.data.dataset import load_dataset
     from scientific_rag.experiments.phase4_feasibility import build_trajectories
     part = json.loads((RESULTS / "dev_partition.json").read_text())

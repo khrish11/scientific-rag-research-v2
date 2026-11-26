@@ -42,6 +42,10 @@ build-backend = "setuptools.build_meta"
 target-version = "py311"
 line-length = 100
 
+# experiment entry-point scripts: relaxed style rules (runnable research code)
+[tool.ruff.lint.per-file-ignores]
+"src/scientific_rag/experiments/**" = ["ARG001", "B007", "B905", "C416", "E702", "F841"]
+
 [tool.ruff.lint]
 select = [
     "E",   # pycodestyle errors
@@ -88,6 +92,8 @@ module = [
     "tiktoken.*",
     "sentence_transformers.*",
     "torch.*",
+    "sklearn.*",
+    "scipy.*",
 ]
 ignore_missing_imports = true
 
