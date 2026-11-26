@@ -153,13 +153,17 @@ This research uses the QASPER dataset from the Allen Institute for AI (AI2).
 stopping in single-paper scientific QA (QASPER). NOT peer-reviewed.
 
 **Principal findings (exploratory validation only):**
-- Complete annotated-evidence recovery @1024 tokens: BM25 .578, dense .644,
-  hybrid .663, RRF .661 (812 eligible questions, question-micro).
-- Recovery collapses for multi-paragraph evidence (dense: 1 para .68,
-  >=5 paras .08).
+- Complete TEXTUAL-evidence-projection recovery @1024 tokens: BM25 .578,
+  dense .644, hybrid .663, RRF .661 (812 eligible, question-micro;
+  non-textual evidence components excluded — 15.9% of eligible have
+  mixed-media annotations).
+- Recovery collapses for multi-paragraph evidence sets (dense @1024 by
+  min gold-set size: 1 para .695 n=691, 2 .449 n=89, 3 .176 n=17,
+  4+ 0.0).
 - Learned sufficiency prediction NOT supported: retrieval features
   AUROC ~0.5-0.58 vs context-size-only 0.755; learned stopping fails the
-  token-reduction non-inferiority target. Model C untested.
+  descriptive feasibility targets; formal NI not evaluated.
+  Model C untested.
 - GPU (RTX 4060) gives ~14x embedding throughput, identical rankings.
 
 **Install:** `python -m venv .venv && .venv\Scripts\pip install -e ".[dev]"`
@@ -173,7 +177,9 @@ stopping in single-paper scientific QA (QASPER). NOT peer-reviewed.
 `scripts/`.
 
 **Limitations:** validation-informed preprocessing; test split sealed;
-no Model C; no faithful Adaptive-k; eligibility exclusions not fully
+no Model C; no faithful Adaptive-k; metric is textual-evidence
+  projection (non-textual components excluded); packing is estimated
+  (<=32-token overestimate verified); eligibility exclusions not fully
 characterized; single dataset/single-paper setting.
 
 **Disclosure:** AI-assisted software development (Devin, Cognition).

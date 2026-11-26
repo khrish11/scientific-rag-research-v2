@@ -14,6 +14,9 @@
 - Eligibility: >=1 annotation, fully-mapped nonempty textual evidence
   (non-textual = FLOAT SELECTED/figure-table pointers excluded from req)
 - Validation eligible: 812 questions / 275 papers; excluded 193
+- Metric = TEXTUAL EVIDENCE PROJECTION: non-textual components
+  (figures/tables/FLOAT SELECTED) excluded from completeness requirement;
+  129/812 eligible (15.9%) have mixed-media annotations
 
 ## Canonical protocol (Phase 5.1)
 - Paragraph-level passages; paper known in advance (single-paper QA)

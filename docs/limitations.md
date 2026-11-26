@@ -13,3 +13,16 @@
 - Sufficiency predictors (Model A/B) reproduced from Phase 3/4 artifacts;
   Model C remains UNTESTED (never implemented).
 - Coverage-aware selection deferred; prior-art risk documented as HIGH.
+
+## Phase 5.1 corrections
+- Packing uses ESTIMATED serialized tokens (per-paragraph counts + 2/sep),
+  verified <=32-token overestimate vs exact join on 288 contexts; NOT
+  exact serialization.
+- Primary metric is TEXTUAL EVIDENCE PROJECTION, not full annotated-
+  evidence recovery: 129/812 eligible (15.9%) contain non-textual
+  evidence components excluded from the requirement.
+- Evidence-set-size buckets use MINIMUM gold-set size; denominators
+  differ from earlier union-based reports.
+- Learned-stopping claim corrected: descriptive feasibility targets not
+  met; formal non-inferiority NOT evaluated.
+- Model C remains UNTESTED; no semantic sufficiency conclusion.
