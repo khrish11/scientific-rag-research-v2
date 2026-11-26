@@ -24,3 +24,12 @@ better than fixed budget frontier.
 NEGATIVE for score-feature learned stopping: adding retrieval features to
 context-size baseline HURTS AUROC (0.723 < 0.755). Confirms Phase 3 finding.
 Go/no-go leans NO-GO for this formulation; see docs/research_decision.md.
+
+## Phase 4.1 additions (partial)
+- Model A stopping (thr=0.763, val): dense complete 0.812 @1844 mean tok,
+hybrid 0.817 @1861, rrf 0.809 @1914, bm25 0.751 @1886; premature ~10-11%.
+  vs fixed-budget dense@2048 0.826 @1939 -> Model A stopping does NOT meet
+  the 20% token-reduction / 1pp non-inferiority target.
+- Matched-context pairs: 0 natural pairs found under |dtok|<=25 & same
+  n_selected -> matched evaluation INCONCLUSIVE (needs constructed pairs).
+- Model C, faithful Adaptive-k, ECE, NI test: INCOMPLETE.
