@@ -18,3 +18,10 @@
    multi-paragraph evidence recovery under budget; score-only stopping is
    insufficient. Next step should be a minimal learned sufficiency probe
    on dev trajectories, evaluated honestly on validation.
+
+## Phase 4 update
+Model B (all retrieval features) AUROC 0.723 < Model A size-only 0.755 on
+held-out trajectories; no-size ablation 0.578. Learned score-based stopping
+NOT justified. Recommend: abandon learned sufficiency estimator in current
+form; investigate evidence-coverage-aware passage selection instead
+(per Phase 3 contingency). Model C / Adaptive-k / matched-pair eval pending.
